@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
+app.set('port',process.env.OPENSHIFT_NODEJS_PORT || 3000);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); 
+
 app.get('/',(req,res)=>{
-    res.end('index page');
+    res.send('index page');
 })
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
     const min = parseInt(req.params.numeroInicial);
@@ -14,9 +17,6 @@ app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
     }
     res.json({"randomNumber":result});
 })
-var direccionip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var puerto = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-//app.set('port',process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000);
-app.listen(puerto,direccionip,()=>{
-    console.log('server on port:',puerto,' IP:',direccionip);
+app.listen(app.get('port'),app.get('ip'),()=>{
+    console.log('server on port: ',app.get('port'),' IP:',app.get('ip'));
 })
