@@ -16,5 +16,5 @@ app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
 })
 app.set('port',process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000);
 app.listen(app.get('port'),()=>{
-    console.log('server on port 3000');
+    console.log('server on port 3000',app.get('port'));
 })
