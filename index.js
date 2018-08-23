@@ -31,4 +31,4 @@ app.listen(port,ip,()=>{
     console.log('server on port: ',port,' IP:',ip);
 })
 
-module.exports = app ;
+//module.exports = app ;
