@@ -26,6 +26,10 @@ app.post('/',(req,res)=>{
     res.send('guardando...');
 });
 
+app.put('/',(req,res)=>{
+    res.send('actualizando...');
+});
+
 // error handling
 app.use(function(err, req, res, next){
     console.error(err.stack);
