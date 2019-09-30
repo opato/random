@@ -31,11 +31,11 @@ app.put('/',(req,res)=>{
 });
 
 // error handling
-/*app.use(function(err, req, res, next){
+app.use(function(err, req, res, next){
     console.error(err.stack);
     res.status(500).send('Something bad happened!');
-  });
-  */
+});
+  
 app.listen(port,ip,()=>{
     console.log('server on port: ',port,' IP:',ip);
 })
