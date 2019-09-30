@@ -10,10 +10,6 @@ app.get('/',(req,res)=>{
     res.send('index page');
 });
 
-app.post('/',(req,res)=>{
-    res.send('guardando...');
-});
-
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
     const min = parseInt(req.params.numeroInicial);
     const max = parseInt(req.params.numeroFinal);
@@ -24,6 +20,10 @@ app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
         return;
     }
     res.json({"randomNumber":result});
+});
+
+app.post('/',(req,res)=>{
+    res.send('guardando...');
 });
 
 // error handling
