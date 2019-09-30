@@ -8,8 +8,7 @@ app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); */
 
 app.get('/',(req,res)=>{
     res.send('index page');
-});
-
+})
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
     const min = parseInt(req.params.numeroInicial);
     const max = parseInt(req.params.numeroFinal);
@@ -20,6 +19,12 @@ app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
         return;
     }
     res.json({"randomNumber":result});
+})
+
+// error handling
+app.use(function(err, req, res, next){
+    console.error(err.stack);
+    res.status(500).send('Something bad happened!');
 });
 
 app.post('/',(req,res)=>{
@@ -30,12 +35,6 @@ app.put('/',(req,res)=>{
     res.send('actualizando...');
 });
 
-// error handling
-/*app.use(function(err, req, res, next){
-    console.error(err.stack);
-    res.status(500).send('Something bad happened!');
-  });
-  */
 app.listen(port,ip,()=>{
     console.log('server on port: ',port,' IP:',ip);
 })
