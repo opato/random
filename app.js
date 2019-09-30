@@ -8,11 +8,11 @@ app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); */
 
 app.get('/',(req,res)=>{
     res.send('index page');
-})
+});
 
 app.post('/',(req,res)=>{
     res.send('guardando...');
-})
+});
 
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
     const min = parseInt(req.params.numeroInicial);
@@ -24,7 +24,7 @@ app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
         return;
     }
     res.json({"randomNumber":result});
-})
+});
 
 // error handling
 app.use(function(err, req, res, next){
