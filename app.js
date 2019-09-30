@@ -7,7 +7,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); */
 
 app.get('/',(req,res)=>{
-    res.send('index page');
+    res.send('Solo en app mal');
 });
 
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
