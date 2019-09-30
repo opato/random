@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 /*app.set('port',process.env.OPENSHIFT_NODEJS_PORT || 3000);
