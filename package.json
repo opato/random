@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carlos May",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"

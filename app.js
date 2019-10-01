@@ -7,7 +7,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); */
 
 app.get('/',(req,res)=>{
-    res.send('Solo en app mal');
+    res.send('INicio App');
 });
 
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
@@ -22,6 +22,12 @@ app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
     res.json({"randomNumber":result});
 });
 
+// error handling
+app.use(function(err, req, res, next){
+    console.error(err.stack);
+    res.status(500).send('Something bad happened!');
+});
+
 app.post('/',(req,res)=>{
     res.send('guardando...');
 });
@@ -30,12 +36,6 @@ app.put('/',(req,res)=>{
     res.send('actualizando...');
 });
 
-// error handling
-app.use(function(err, req, res, next){
-    console.error(err.stack);
-    res.status(500).send('Something bad happened!');
-});
-  
 app.listen(port,ip,()=>{
     console.log('server on port: ',port,' IP:',ip);
 })
