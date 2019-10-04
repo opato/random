@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const config = require('./config/config.js');
+
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
@@ -7,7 +9,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); */
 
 app.get('/',(req,res)=>{
-    res.send('INicio App');
+    res.json(global.gConfig);
 });
 
 app.get('/random/:numeroInicial/:numeroFinal',(req,res)=>{
@@ -37,7 +39,7 @@ app.put('/',(req,res)=>{
 });
 
 app.listen(port,ip,()=>{
-    console.log('server on port: ',port,' IP:',ip);
+    console.log(`${global.gConfig.app_name} listening on port ${global.gConfig.node_port}`);
 })
 
 module.exports = app ;

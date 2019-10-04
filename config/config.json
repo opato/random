@@ -1,0 +1,26 @@
+{
+    "development": {
+        "config_id": "development",
+        "app_name": "my app",
+        "servidor": "localhost",
+        "node_port": 3000,
+        "json_indentation": 4,
+        "database": "contratos"
+    },
+    "testing": {
+        "config_id": "testing",
+        "servidor": "localhost",
+        "database": "test_carcontrol"
+    },
+    "staging": {
+        "config_id": "staging",
+        "node_port": 8080,
+        "database": "my-app-db-stag"
+    },
+    "production": {
+        "config_id": "production",
+        "servidor": "10.1.10.90",
+        "node_port": 8080,
+        "database": "car_control"
+    }
+}
